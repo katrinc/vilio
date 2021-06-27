@@ -27,10 +27,11 @@ class HMTorchDataset(Dataset):
         # Loading datasets to data
         self.raw_data = []
         for split in self.splits:
-            path = os.path.join("data/", f"{split}.jsonl")
-            self.raw_data.extend(
-                    [json.loads(jline) for jline in open(path, "r").read().split('\n')]
-            )
+            path = os.path.join("data/", f"{split}.json")
+            with open(path,"r") as json_file:
+                data = json.load(json_file)
+                self.raw_data.append(data)
+                
         print("Load %d data from split(s) %s." % (len(self.raw_data), self.name))
 
         # List to dict (for evaluation and others)
