@@ -43,6 +43,7 @@ def get_tuple(splits: str, bs: int, shuffle=False, drop_last=False) -> DataTuple
 
 def main():
     # Build Class
+    print("build class")
     hm = HM()
     return_value = 0
     for split in args.test.split(","):

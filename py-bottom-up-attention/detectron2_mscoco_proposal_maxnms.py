@@ -58,7 +58,7 @@ def fast_rcnn_inference_single_image(
     max_scores, max_classes = scores.max(1)       # R x C --> R
     num_objs = boxes.size(0)
     boxes = boxes.view(-1, 4)
-    idxs = torch.arange(num_objs).cuda() * num_bbox_reg_classes + max_classes
+    idxs = torch.arange(num_objs) * num_bbox_reg_classes + max_classes # removed cuda for cpu
     max_boxes = boxes[idxs]     # Select max boxes according to the max scores.
     
     # Apply NMS

@@ -299,11 +299,11 @@ class HM:
                 for qid, l in zip(ids, score.cpu().numpy()):
                     id2prob[qid] = l
 
-        if dump is not None:
-            if out_csv == True:
-                evaluator.dump_csv(id2ans, id2prob, dump)
-            else:
-                evaluator.dump_result(id2ans, dump)
+       # if dump is not None:
+       #     if out_csv == True:
+       #         evaluator.dump_csv(id2ans, id2prob, dump)
+       #     else:
+       #         evaluator.dump_result(id2ans, dump)
 
         return id2ans, id2prob
 
